@@ -84,20 +84,38 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
         beforeEach(function(done) {
-            loadFeed(0, done);
+            loadFeed(0, done);// Load the first feed (index of 0), passing in done as the callback
         });
 
         it('are defined after calling loadFeed function', function(done) {
-            expect($('.feed').children().length).not.toBe(0);
+            //check that the array containing the feed entries has a length that is not 0
+            expect($('.entry').length).not.toBe(0);
             done();
         });
 
-    }) ;
+    });
 
-    /* TODO: Write a new test suite named "New Feed Selection"
-
+    /* TODO: Write a new test suite named "New Feed Selection"*/
+    describe('New Feed Selection', function() {
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+
+        var oldEntry = {};//holds the first entry from the first call to loadFeed
+
+        beforeEach(function(done) {
+            loadFeed(0);// Load the first feed (index of 0).
+            oldEntry = $('.entry')[0];//the first entry from the feed
+            loadFeed(2, done);// Load the third feed (index of 2), passing in done as the callback
+        });
+
+        it('changes the content of the RSS feed entries', function(done) {
+            //check that the first entry from each of the two calls to loadFeed are not the same
+            expect($('.entry')[0].isEqualNode(oldEntry)).toBe(false);
+            loadFeed(0);// Load the first feed to restore the page to its starting state
+            done();
+        });
+    });
+
 }());
