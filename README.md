@@ -1,3 +1,11 @@
+Running and Using the Application:
+1) Find the "index.html" file in the "frontend-nanodegree-feedreader" folder/directory.
+2) Double-click on the file (or open it from within a web browser).
+3) The application will load, and the Jasmine SpecRunner will run all tests and display the results in an area at the bottom of the page.
+4) To change the RSS Feed displayed, click on the menu icon (upper-left) and click on a feed name in the menu.
+5) To hide the menu, click on the menu icon again.
+6) To view an article from a feed, click on the title of the article. (You will be directed to the url for that article. Use the browser's Back button to return to this application after reading the article.)
+
 # Project Overview
 
 In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
@@ -44,5 +52,5 @@ Review the Feed Reader Testing [Project Rubric](https://review.udacity.com/#!/pr
 17. No test should be dependent on the results of another.
 18. Callbacks should be used to ensure that feeds are loaded before they are tested.
 19. Implement error handling for undefined variables and out-of-bound array access.
-20. When complete - all of your tests should pass. 
+20. When complete - all of your tests should pass.
 21. Write a README file detailing all steps required to successfully run the application. If you have added additional tests (for Udacious Test Coverage),  provide documentation for what these future features are and what the tests are checking for.
