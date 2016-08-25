@@ -85,6 +85,7 @@ $(function() {
 
         it('are defined after calling loadFeed function', function(done) {
             //check that the array containing the feed entries has a length that is not 0
+            //expect($('.entry').length).not.toBe(0);
             expect($('.entry').length).not.toBe(0);
             done();
         });
@@ -102,12 +103,15 @@ $(function() {
         var oldEntry = {};//holds the first entry from the first call to loadFeed
 
         beforeEach(function(done) {
-            loadFeed(0);// Load the first feed (index of 0).
-            oldEntry = $('.entry')[0];//the first entry from the feed
-            loadFeed(2, done);// Load the third feed (index of 2), passing in done as the callback
+            loadFeed(0, function(){// Load the first feed (index of 0).
+                oldEntry = $('.entry')[0];//the first entry from the feed
+                console.log(oldEntry.innerHTML);
+                loadFeed(2, done);// Load the third feed (index of 2), passing in done as the callback
+            });
         });
 
         it('changes the content of the RSS feed entries', function(done) {
+            console.log($('.entry')[0].innerHTML);
             //check that the first entry from each of the two calls to loadFeed are not the same
             expect($('.entry')[0].isEqualNode(oldEntry)).toBe(false);
             loadFeed(0);// Load the first feed to restore the page to its starting state
