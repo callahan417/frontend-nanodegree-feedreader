@@ -86,7 +86,7 @@ $(function() {
         it('are defined after calling loadFeed function', function(done) {
             //check that the array containing the feed entries has a length that is not 0
             //expect($('.entry').length).not.toBe(0);
-            expect($('.entry').length).not.toBe(0);
+            expect($('.entry').length).toBeGreaterThan(0);
             done();
         });
 
